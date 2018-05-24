@@ -1,5 +1,7 @@
 package krobis.game;
 
+import javax.swing.SwingUtilities;
+
 public class Father {
   
   public static void main(String[] args) {
@@ -7,6 +9,11 @@ public class Father {
   } 
   
   public Father(String[] args) {
+    
+    
+    SwingUtilities.invokeLater(() -> {
+      
+    });
     
   }
 
