@@ -1,4 +1,4 @@
-package krobis.board;
+package krobis.model.board;
 
 public class Grid {
   
