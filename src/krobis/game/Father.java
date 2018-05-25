@@ -11,12 +11,8 @@ public class Father {
   } 
   
   public Father(String[] args) {
-    this.gameController = GameController.getInstance();
-    
-    SwingUtilities.invokeLater(() -> {
-      
-    });
-    
+    this.gameController = GameController.getInstance();  
+    this.gameController.begin();
   } 
 
 }
