@@ -2,7 +2,7 @@ package krobis.game;
 
 import javax.swing.SwingUtilities;
 
-public class Father {
+public class Father { 
   
   private GameController gameController;
   
@@ -17,7 +17,6 @@ public class Father {
       
     });
     
-  }
+  } 
 
-  
 }

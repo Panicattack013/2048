@@ -1,4 +1,4 @@
-package krobis.board;
+package krobis.model.board;
 
 import java.awt.Color;
 import java.awt.Font;
