@@ -15,6 +15,10 @@ public class Tile {
   
   private static final Font FONT_NUMBER = new Font("Garamond", Font.PLAIN, 32);
   
+  public Tile(int val) {
+	  this.val = val;
+  }
+  
   public void draw(Graphics2D g) {
     throw new UnsupportedOperationException("Tile drawing not implemented");
   }
