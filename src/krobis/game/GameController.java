@@ -1,8 +1,12 @@
 package krobis.game;
 
+import krobis.gui.GUIHandler;
+
 public class GameController {
 
   private static GameController controller;
+  
+  private GUIHandler guiHandler;
   
   public static GameController getInstance() {
     if (GameController.controller == null) {
@@ -12,5 +16,11 @@ public class GameController {
   }
   
   private GameController(){}
+  
+  public void begin() {
+    this.guiHandler = GUIHandler.getInstance(this);
+    this.guiHandler.init();
+  }
+  
   
 }
