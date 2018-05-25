@@ -19,7 +19,6 @@ public class Grid {
 		tilesOnBoard = new ArrayList<Tile>();
 		tilesOnBoard.add(this.addRandom());
 		tilesOnBoard.add(this.addRandom());
-		System.out.println("nothing");
 	}
 	public Tile[][] getBoard() {
 		return this.board;
