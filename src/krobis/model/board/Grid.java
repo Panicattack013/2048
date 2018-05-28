@@ -69,16 +69,27 @@ public class Grid {
 	}
 	public void moveUp() {
 		for (int i = 0; i < 4; i++) {
+			System.out.println("Evaluating row " + i);
 			for (int j = 0; j < 4; j++) {
+				System.out.println("Evaluating column " + j);
 				Tile currentTile = board[i][j];
-				int yIndex = i;
-				while (yIndex != 0) { //not on border
-					if (!isEmpty(currentTile)) { // found tile
-						
-					} else {
-						Tile adjacentTile = board[i - 1][j];
-						if (sameValue(currentTile, adjacentTile)) {
-							combine(currentTile, adjacentTile);
+				if (currentTile != null) {
+					System.out.println("Tile found: " + currentTile.getValue());
+					int yIndex = j - 1;
+					while (yIndex > 0) { //not on border
+						System.out.println("y index: " + yIndex);
+						Tile adjacentTile = board[i][j-yIndex];
+						if (isEmpty(adjacentTile)) {
+							Tile replace = new Tile(currentTile.getValue());
+							board[i][j - yIndex - 1] = replace;
+							currentTile = replace;
+							board[i][j] = null;
+							yIndex--;
+						} else {
+							adjacentTile = new Tile(currentTile.getValue());
+							adjacentTile.doubleValue();
+							currentTile = null;
+							yIndex--;
 						}
 					}
 				}
@@ -96,10 +107,8 @@ public class Grid {
 	}
 
 	public boolean sameValue(Tile one, Tile two) {
+		if (one == null || two == null) return false;
 		return one.getValue() == two.getValue();
-	}
-	public void combine(Tile current, Tile adjacent) {
-		
 	}
 
 	/*
@@ -118,5 +127,21 @@ public class Grid {
 - add random tile in empty spot
 - call redraw (through game controller)
 	 */
+
+	@Override
+	public String toString() {
+		String out = "";
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				if (board[j][i] != null) {
+					out += board[j][i].getValue();
+				} else {
+					out += "x";
+				}
+			}
+			out += "\n";
+		}
+		return out;
+	}
 
 }
